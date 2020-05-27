@@ -26,37 +26,10 @@ const image = require('./controllers/image')
 const app = express();
 app.use(bodyParser.json());
 app.use(cors());
-const database = {
-    users: [
-        {
-            id: '1',
-            name: 'John',
-            email: 'john@example.com',
-            password: 'password',
-            entries: 0,
-            joined: new Date(),
-        },
-        {
-            id: '2',
-            name: 'Sally',
-            email: 'Sally@example.com',
-            password: 'pass',
-            entries: 0,
-            joined: new Date(),
-        }
 
-    ],
-    login: [
-        {
-            id: '987',
-            hash: '',
-            email: 'john@example.com'
-        }
-    ]
-}
 
 app.get("/", (req, res)=> {
-    res.send(database.users);
+    res.send("it is working!");
 })
 
 app.post("/signin", (req, res) =>{ signin.handleSignin(req,res,db,bcrypt)})
